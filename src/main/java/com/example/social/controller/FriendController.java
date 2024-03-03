@@ -1,8 +1,6 @@
 package com.example.social.controller;
 
-import com.example.social.domain.dto.UserDto;
 import com.example.social.domain.model.Friend;
-import com.example.social.domain.model.User;
 import com.example.social.service.FriendService;
 import com.example.social.service.JwtService;
 import io.swagger.v3.oas.annotations.Operation;

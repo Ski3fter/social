@@ -1,13 +1,10 @@
 package com.example.social.controller;
 
-import com.example.social.domain.dto.JwtAuthenticationResponse;
-import com.example.social.domain.dto.SignInRequest;
 import com.example.social.domain.dto.UserDto;
 import com.example.social.domain.model.User;
 import com.example.social.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

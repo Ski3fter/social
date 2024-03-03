@@ -22,7 +22,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 
 import java.util.List;
-import java.util.Objects;
 
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
