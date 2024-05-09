@@ -51,4 +51,16 @@ public class UserController {
         return ResponseEntity.ok(users.stream().map(this::convertUserDto).collect(Collectors.toList()));
     }
 
+    @Operation(summary = "Авторизация пользователя по индексу")
+    @GetMapping("/searchByIndex")
+    public ResponseEntity<List<UserDto>> searchByIndex(@RequestParam String firstName, @RequestParam String lastName) {
+
+        if (firstName == null || lastName == null) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        List<User> users = userService.getFirstLastNameIndex(firstName, lastName);
+        return ResponseEntity.ok(users.stream().map(this::convertUserDto).collect(Collectors.toList()));
+    }
+
 }

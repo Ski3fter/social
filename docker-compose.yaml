@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  db:
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db/postgres-data:/var/lib/postgresql/data
+      - ./db/data.sql:/docker-entrypoint-initdb.d/create.sql
+    env_file:
+      - .env
+
+  app:
+    depends_on:
+      - db
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env

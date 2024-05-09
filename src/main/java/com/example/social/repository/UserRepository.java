@@ -15,6 +15,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query("SELECT u FROM User u WHERE u.firstName LIKE %:firstName% and u.lastName LIKE %:lastName%")
     Optional<List<User>> findByFirstLastNameLike(@Param("firstName") String firstName, @Param("lastName") String lastName);
+    @Query(value = "SELECT * FROM users WHERE users.first_name_ts @@ to_tsquery(:firstName) and users.second_name_ts @@ to_tsquery(:lastName)",
+            nativeQuery = true)
+    Optional<List<User>> findByFirstLastNameIndex(@Param("firstName") String firstName, @Param("lastName") String lastName);
 
     boolean existsByUsername(String username);
     boolean existsByEmail(String email);

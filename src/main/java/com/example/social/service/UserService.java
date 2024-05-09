@@ -67,6 +67,16 @@ public class UserService {
     }
 
     /**
+     * Получение пользователя по имени пользователя по индексу gin
+     *
+     * @return список пользователей
+     */
+    public List<User> getFirstLastNameIndex(String firstName, String lastName) {
+        return repository.findByFirstLastNameIndex(String.format("%s:*", firstName), String.format("%s:*", lastName))
+                .orElseThrow(() -> new UsernameNotFoundException("Пользователи не найдены"));
+    }
+
+    /**
      * Получение пользователя по идентифкатору
      *
      * @return пользователь

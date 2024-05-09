@@ -2,10 +2,10 @@ spring:
   application:
     name: social
   datasource:
-    url: jdbc:postgresql://localhost:5432/social
+    url: jdbc:postgresql://${POSTGRES_URL}:5432/${POSTGRES_DB}
     driverClassName: org.postgresql.Driver
-    username: postgres
-    password: postgres
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
   jpa:
     show-sql: true
     properties:
